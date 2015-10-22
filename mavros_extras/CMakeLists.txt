@@ -56,7 +56,7 @@ add_message_files(
   Vibration.msg
   CamIMUStamp.msg
   SonarDistance.msg
-  LazerDistance.msg
+  LaserDistance.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -120,7 +120,7 @@ add_library(mavros_extras
   src/plugins/vibration.cpp
   src/plugins/cam_imu_sync.cpp
   src/plugins/sonar_distance.cpp
-  src/plugins/lazer_distance.cpp
+  src/plugins/laser_distance.cpp
 )
 add_dependencies(mavros_extras
   mavros_extras_generate_messages_cpp

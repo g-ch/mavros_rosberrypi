@@ -42,10 +42,10 @@ private:
 
 	std::string frame_id;
 
-    void sonar_distance_send(float a, float b, float c, float d, float e, float f){
+    void sonar_distance_send(float a, float b, float c, float d, float e, float f, float g){
     	mavlink_message_t sonar_distance_msg;
 
-    	mavlink_msg_sonar_distance_pack_chan(UAS_PACK_CHAN(uas),&sonar_distance_msg,a,b,c,d,e,f); //pack
+    	mavlink_msg_sonar_distance_pack_chan(UAS_PACK_CHAN(uas),&sonar_distance_msg,a,b,c,d,e,f,g); //pack
     	UAS_FCU(uas)->send_message(&sonar_distance_msg); //send
         //mavlink_msg_sonar_distance_send(MAVLINK_COMM_1,a,b,c,d,e,f);
         ROS_INFO("float_a %d %d", sonar_distance_msg.seq,sonar_distance_msg.len);
@@ -54,7 +54,7 @@ private:
     
     //callbacks
     void sonar_distance_send_cb(const std_msgs::Float32 &msg){
-        sonar_distance_send(msg.data,2.0,0.0,0.1,0.2,0.3);
+        sonar_distance_send(msg.data,2.0,0.0,0.1,0.2,0.3,0.4);
     }
 };
 

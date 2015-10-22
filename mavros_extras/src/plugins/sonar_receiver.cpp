@@ -44,13 +44,13 @@ private:
 
                 auto sonar_mav_msg = boost::make_shared<mavros_extras::SonarDistance>();//define a msg the same type as  mavros_extras::ClarenceNewMavros
 
-                sonar_mav_msg->sonar_a = sonar_msg.sonar_a; 
-                sonar_mav_msg->sonar_b = sonar_msg.sonar_b; 
-                sonar_mav_msg->sonar_c = sonar_msg.sonar_c; 
-                sonar_mav_msg->sonar_d = sonar_msg.sonar_d; 
-                sonar_mav_msg->sonar_e = sonar_msg.sonar_e; 
-                sonar_mav_msg->sonar_f = sonar_msg.sonar_f; 
-
+                sonar_mav_msg->sonar_front = sonar_msg.sonar_front; 
+                sonar_mav_msg->sonar_behind = sonar_msg.sonar_behind; 
+                sonar_mav_msg->sonar_left = sonar_msg.sonar_left; 
+                sonar_mav_msg->sonar_right = sonar_msg.sonar_right; 
+                sonar_mav_msg->sonar_up = sonar_msg.sonar_up; 
+                sonar_mav_msg->sonar_down = sonar_msg.sonar_down; 
+                sonar_mav_msg->sonar_cam = sonar_msg.sonar_cam; 
                 
                 sonar_receiver_pub.publish(sonar_mav_msg); //publish msg
 

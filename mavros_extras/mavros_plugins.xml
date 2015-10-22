@@ -30,10 +30,10 @@
 		<description>Writtren by Clarence Chan for sonar value</description>
 	</class>
 
-
-	<class name="lazer_distance" type="mavplugin::LazerDistancePlugin" base_class_type="mavplugin::MavRosPlugin">
-		<description>Writtren by Clarence Chan for lazer value</description>
+	<class name="laser_distance" type="mavplugin::LaserDistancePlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description>Writtren by Clarence Chan for laser value</description>
 	</class>
+
 
 
 
