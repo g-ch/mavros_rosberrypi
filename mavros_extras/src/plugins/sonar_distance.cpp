@@ -1,7 +1,8 @@
 #include <mavros/mavros_plugin.h>
 #include <pluginlib/class_list_macros.h>
 #include <mavros_extras/SonarDistance.h>
-#include "std_msgs/Float32.h" 
+#include "std_msgs/Float32.h"
+#include "sonar/Sonar.h" 
 #include <ros/console.h>
 
 namespace mavplugin{
@@ -19,7 +20,7 @@ public:
         
     	sonar_distance_nh.param<std::string>("frame_id", frame_id, "sonar_distance");
         //subcribe the topic and excute the callback function
-    	sonar_distance_sub = sonar_distance_nh.subscribe("/chatter",500,&SonarDistancePlugin::sonar_distance_send_cb,this);
+    	sonar_distance_sub = sonar_distance_nh.subscribe("/sonar_send",500,&SonarDistancePlugin::sonar_distance_send_cb,this);
 
     }
     
@@ -53,8 +54,8 @@ private:
     }
     
     //callbacks
-    void sonar_distance_send_cb(const std_msgs::Float32 &msg){
-        sonar_distance_send(msg.data,2.0,0.0,0.1,0.2,0.3,0.4);
+    void sonar_distance_send_cb(const sonar::Sonar &msg){
+        sonar_distance_send(msg.sonar_front,msg.sonar_behind,msg.sonar_left,msg.sonar_right,msg.sonar_up,msg.sonar_down,msg.sonar_cam);
     }
 };
 
