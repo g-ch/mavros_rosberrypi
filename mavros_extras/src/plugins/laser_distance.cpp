@@ -3,6 +3,7 @@
 #include <mavros_extras/LaserDistance.h>
 #include "std_msgs/Float32.h" 
 #include <ros/console.h>
+#include "sonar/Laser.h"
 
 namespace mavplugin{
 
@@ -53,8 +54,8 @@ private:
     }
     
     //callbacks
-    void laser_distance_send_cb(const std_msgs::Float32 &msg){
-        laser_distance_send(msg.data,4.0,3.0,0.1);
+    void laser_distance_send_cb(const sonar::Laser &msg){
+        laser_distance_send(msg.min_distance,msg.angle,msg.laser_x,msg.laser_y);
     }
 };
 
